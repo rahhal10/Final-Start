@@ -5,7 +5,7 @@
   padding: 0 20px;
   background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.85) 100%);
   height: 56px;
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Arial, sans-serif; /* match Dashboard .hero */
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Arial, sans-serif; /* match Home .hero */
   box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06), 0 1px 0 #e5e7eb;
   position: sticky;
   top: 0;
@@ -213,5 +213,5 @@
 
 /* force the same stack across all nav items */
 .navbar, .nav-links a, .nav-links-right a, #Signup a, .navbar-title, .navbar-beta {
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Arial, sans-serif; /* match Dashboard .hero */
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Arial, sans-serif; /* match Home .hero */
 }
