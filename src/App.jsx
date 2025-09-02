@@ -4,6 +4,8 @@ import Home from './Routes/Home.jsx'
 import Dashboard from './Routes/Dashboard.jsx'
 import Courses from './Routes/Courses.jsx'
 import About from './Routes/About.jsx'
+import Footer from './Comp/Footer.jsx'
+import Cart from './Routes/Cart.jsx'
 function App() {
 
   return (
@@ -15,9 +17,11 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/courses" element={<Courses />} />
         <Route path="/about" element={<About />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<div>Login Page</div>} />
         <Route path="/signup" element={<div>Signup Page</div>} />
       </Routes>
+      <Footer />
     </Router>
     </>
   )

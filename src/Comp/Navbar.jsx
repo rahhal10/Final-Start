@@ -14,6 +14,7 @@ function Navbar() {
         <li><Link to="/dashboard">Dashboard</Link></li>
         <li><Link to="/courses">Courses</Link></li>
         <li><Link to="/about">About</Link></li>
+        <li><Link to="/cart">Cart</Link></li>
       </ul>
       <ul className='nav-links-right'>
         <li><Link to="/login">Log In</Link></li>

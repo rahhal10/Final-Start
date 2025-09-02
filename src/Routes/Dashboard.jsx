@@ -17,7 +17,18 @@ function Dashboard() {
   const courseAssignments = [
     { id: 1, title: "JavaScript Functions Quiz", subject: "Web Development", priority: "high", dueDate: "Tomorrow" },
     { id: 2, title: "Data Visualization Project", subject: "Data Science", priority: "medium", dueDate: "In 3 days" },
-    { id: 3, title: "React Component Exercise", subject: "Web Development", priority: "low", dueDate: "Next week" },
+    { id: 1, title: "JavaScript Functions Quiz", subject: "Web Development", priority: "high", dueDate: "Tomorrow" },
+    { id: 2, title: "Data Visualization Project", subject: "Data Science", priority: "medium", dueDate: "In 3 days" },
+    { id: 1, title: "JavaScript Functions Quiz", subject: "Web Development", priority: "high", dueDate: "Tomorrow" },
+    { id: 2, title: "Data Visualization Project", subject: "Data Science", priority: "medium", dueDate: "In 3 days" },
+    { id: 1, title: "JavaScript Functions Quiz", subject: "Web Development", priority: "high", dueDate: "Tomorrow" },
+    { id: 2, title: "Data Visualization Project", subject: "Data Science", priority: "medium", dueDate: "In 3 days" },
+    { id: 1, title: "JavaScript Functions Quiz", subject: "Web Development", priority: "high", dueDate: "Tomorrow" },
+    { id: 2, title: "Data Visualization Project", subject: "Data Science", priority: "medium", dueDate: "In 3 days" },
+    { id: 1, title: "JavaScript Functions Quiz", subject: "Web Development", priority: "high", dueDate: "Tomorrow" },
+    { id: 2, title: "Data Visualization Project", subject: "Data Science", priority: "medium", dueDate: "In 3 days" },
+    
+
   ];
   return (
     <main className="dash">

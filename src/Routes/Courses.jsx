@@ -1,13 +1,57 @@
 import React from 'react'
 import '../Css/Courses.css'
+import Courses_CoursesCards from '../Comp/Courses_CoursesCards.jsx'
 
 function Courses() {
+
+  const Coursesclass = [
+    {
+      id: 1,
+      title: 'Complete Web Development Bootcamp',
+      img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      badge: 'development',
+      level: '',
+      instructor: 'by Sarah Johnson',
+      rating: '⭐ 4.9',
+      duration: '🕒 12 weeks',
+      students: '👥 15,432',
+      lessons: '📚 24 lessons',
+      price: '$199',
+      paymentInfo: 'One-time payment'
+    },    {
+      id: 2,
+      title: 'Complete Web Development Bootcamp',
+      img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      badge: 'development',
+      level: '',
+      instructor: 'by Sarah Johnson',
+      rating: '⭐ 4.9',
+      duration: '🕒 12 weeks',
+      students: '👥 15,432',
+      lessons: '📚 24 lessons',
+      price: '$199',
+      paymentInfo: 'One-time payment'
+    },{
+      id: 2,
+      title: 'Complete Web Development Bootcamp',
+      img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      badge: 'development',
+      level: '',
+      instructor: 'by Sarah Johnson',
+      rating: '⭐ 4.9',
+      duration: '🕒 12 weeks',
+      students: '👥 15,432',
+      lessons: '📚 24 lessons',
+      price: '$199',
+      paymentInfo: 'One-time payment'
+    }
+  ]
   return (
     <>
       <section className="courses-hero" aria-label="courses-hero">
         <div className="courses-container">
           <h1 className="courses-title">
-            Explore Our <span className="purple">Courses</span>
+            Explore Our <span className="highlight"><span className="purple">Courses</span></span>
           </h1>
 
           <p className="courses-desc">
@@ -31,41 +75,97 @@ function Courses() {
           </div>
         </div>
       </section>
-
+      
       <section className="courses-tools" aria-label="course search and filters">
         <div className="tools-container">
-          <div className="search-wrap">
-            <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-              <circle cx="11" cy="11" r="7" />
-              <line x1="21" y1="21" x2="16.65" y2="16.65" />
-            </svg>
-            <input
-              type="text"
-              placeholder="Search courses..."
-              aria-label="Search courses"
-            />
-          </div>
+          <div className="tools-row">
+            <div className="search-wrap">
+              {/* label targets the input so clicking the icon focuses the input without JS */}
+              <label className="icon-wrap" htmlFor="courses-search" aria-hidden="true">
+                <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="11" cy="11" r="7" />
+                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+              </label>
 
-          <div className="filters-wrap">
-            <span className="filter-label">
-              <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                <path d="M22 3H2l8 10v6l4 2v-8z" />
-              </svg>
-              Filter by:
-            </span>
-            <div className="chips">
-              <button className="chip active" type="button">All</button>
-              <button className="chip" type="button">Development</button>
-              <button className="chip" type="button">Data Science</button>
-              <button className="chip" type="button">Marketing</button>
-              <button className="chip" type="button">Design</button>
-              <button className="chip" type="button">Business</button>
-              <button className="chip" type="button">All Levels</button>
-              <button className="chip" type="button">Beginner</button>
-              <button className="chip" type="button">Intermediate</button>
-              <button className="chip" type="button">Advanced</button>
+              <input
+                id="courses-search"
+                type="search"
+                placeholder="Search courses..."
+                aria-label="Search courses"
+                name="courses-search"
+              />
+            </div>
+
+            <div className="filters-wrap">
+              <span className="filter-label">
+                <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
+                  <path d="M22 3H2l8 10v6l4 2v-8z" />
+                </svg>
+                Filter by:
+              </span>
+              <div className="chips" role="radiogroup" aria-label="Course categories">
+                <input className="chip-input" type="radio" id="cat-all" name="course-cat" defaultChecked />
+                <label className="chip-label" htmlFor="cat-all">All</label>
+
+                <input className="chip-input" type="radio" id="cat-dev" name="course-cat" />
+                <label className="chip-label" htmlFor="cat-dev">Development</label>
+
+                <input className="chip-input" type="radio" id="cat-ds" name="course-cat" />
+                <label className="chip-label" htmlFor="cat-ds">Data Science</label>
+
+                <input className="chip-input" type="radio" id="cat-mkt" name="course-cat" />
+                <label className="chip-label" htmlFor="cat-mkt">Marketing</label>
+
+                <input className="chip-input" type="radio" id="cat-design" name="course-cat" />
+                <label className="chip-label" htmlFor="cat-design">Design</label>
+
+                <input className="chip-input" type="radio" id="cat-biz" name="course-cat" />
+                <label className="chip-label" htmlFor="cat-biz">Business</label>
+
+                <input className="chip-input" type="radio" id="cat-levels" name="course-cat" />
+                <label className="chip-label" htmlFor="cat-levels">All Levels</label>
+
+                <input className="chip-input" type="radio" id="cat-beg" name="course-cat" />
+                <label className="chip-label" htmlFor="cat-beg">Beginner</label>
+
+                <input className="chip-input" type="radio" id="cat-int" name="course-cat" />
+                <label className="chip-label" htmlFor="cat-int">Intermediate</label>
+
+                <input className="chip-input" type="radio" id="cat-adv" name="course-cat" />
+                <label className="chip-label" htmlFor="cat-adv">Advanced</label>
+              </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="popular-courses-section" aria-label="popular courses">
+        <div className="popular-container">
+          <div className="section-header">
+            <div className="header-content">
+              <h2 className="section-title">Popular Courses</h2>
+              <p className="section-subtitle">Start with our most popular courses</p>
+            </div>
+            <button className="view-all-btn">View All Courses</button>
+          </div>
+          
+          <div className="popular-grid">
+
+            {Coursesclass.map((Card) => (
+              <Courses_CoursesCards key={Card.id} Card={Card} />
+            ))}
+
+            
+          </div>
+        </div>
+      </section>
+      
+      {}
+      <section className="cta-section" aria-label="ready-to-start">
+        <div className="cta-container">
+          <h2 className="cta-title">Ready to Start Learning?</h2>
+          <p className="cta-subtitle">Join thousands of students who are already transforming their careers with our expert-led courses.</p>
         </div>
       </section>
     </>
