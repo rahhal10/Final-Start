@@ -1,0 +1,34 @@
+ <ul className="assign-list">
+              <li className="assign-row">
+                <div className="task">
+                  <div className="t-title">JavaScript Functions Quiz</div>
+                  <div className="t-sub">Web Development</div>
+                </div>
+                <div className="task-right">
+                  <span className="status-pill high">high</span>
+                  <span className="due">Tomorrow</span>
+                </div>
+              </li>
+
+              <li className="assign-row">
+                <div className="task">
+                  <div className="t-title">Data Visualization Project</div>
+                  <div className="t-sub">Data Science</div>
+                </div>
+                <div className="task-right">
+                  <span className="status-pill medium">medium</span>
+                  <span className="due">In 3 days</span>
+                </div>
+              </li>
+
+              <li className="assign-row">
+                <div className="task">
+                  <div className="t-title">React Component Exercise</div>
+                  <div className="t-sub">Web Development</div>
+                </div>
+                <div className="task-right">
+                  <span className="status-pill low">low</span>
+                  <span className="due">Next week</span>
+                </div>
+              </li>
+            </ul>

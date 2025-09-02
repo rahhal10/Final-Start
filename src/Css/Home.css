@@ -53,7 +53,7 @@ body {
 .hero-bg {
 	position: absolute;
 	inset: 0;
-	background: url('../../assets/hero-learning.jpg') center center / cover no-repeat;
+	background: url('../assets/hero-learning.jpg') center center / cover no-repeat;
 	filter: brightness(1.12) contrast(0.96) saturate(0.98);
 	z-index: 0;
 	background-position: center center;

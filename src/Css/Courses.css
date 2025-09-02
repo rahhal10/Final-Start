@@ -1,0 +1,143 @@
+
+/* Courses page hero — centered, clean, matches screenshot */
+:root {
+  --ink: #111827;
+  --muted: #6b7280;
+  --purple-1: #7c3aed;
+  --purple-2: #8b5cf6;
+  --border: #e5e7eb;
+  --nav-h: 56px; /* keep in sync with .navbar height */
+  --bg-soft-purple: #f7f3ff;
+}
+
+.courses-hero {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(180deg, var(--bg-soft-purple) 0%, #ffffff 80%);
+  display: flex;
+  align-items: flex-start; /* start at top of section */
+  justify-content: center;
+  /* no full-viewport height; keep compact at page start */
+  padding: 40px 16px 40px;
+  box-sizing: border-box;
+  color: var(--ink);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+}
+
+.courses-container {
+  width: min(880px, calc(100% - 40px));
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Badge */
+.courses-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #efeafe;
+  color: #5b21b6;
+  font-weight: 700;
+  font-size: .95rem;
+}
+.courses-badge .icon { width: 16px; height: 16px; }
+
+/* Title */
+.courses-title {
+  margin: 8px 0 6px;
+  line-height: 1.06;
+  letter-spacing: -0.005em;
+  font-weight: 700; /* lighter heading */
+  font-size: clamp(1.9rem, 3.8vw, 3.2rem);
+}
+.courses-title .purple {
+  background: linear-gradient(90deg, var(--purple-1), var(--purple-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Description */
+.courses-desc {
+  margin: 6px 0 12px;
+  color: #6b7280;
+  font-weight: 400; /* lighter body */
+  font-size: clamp(0.92rem, 0.8vw + 0.52rem, 1.08rem);
+  line-height: 1.6;
+  max-width: 75ch;
+}
+
+/* Stats row */
+.courses-stats { display: flex; align-items: flex-end; gap: 28px; margin: 16px 0 4px; }
+.courses-stat { display: inline-flex; flex-direction: column; align-items: center; gap: 4px; }
+.courses-stat .value { font-weight: 600; font-size: clamp(1.1rem, 1.2vw + 0.45rem, 1.7rem); line-height: 1; letter-spacing: -0.01em; }
+.courses-stat .label { color: var(--muted); font-weight: 500; font-size: 0.86rem; }
+.courses-stat .value.purple { color: var(--purple-2); }
+.courses-stat .value.green { color: #10b981; }
+
+/* Actions */
+.courses-actions { display: flex; align-items: center; gap: 18px; margin-top: 6px; }
+.courses-btn-primary {
+  appearance: none; border: none; cursor: pointer;
+  height: 56px; padding: 0 24px; border-radius: 10px;
+  background: linear-gradient(135deg, #5b21b6, #7c3aed 60%, #8b5cf6);
+  color: #fff; font-weight: 800; font-size: 1rem;
+  box-shadow: 0 10px 24px rgba(91, 33, 182, 0.22);
+}
+.courses-btn-secondary {
+  appearance: none; cursor: pointer;
+  height: 56px; padding: 0 22px; border-radius: 10px;
+  background: #fff; color: var(--ink);
+  border: 1px solid var(--border); font-weight: 800; font-size: 1rem;
+}
+
+/* Tools section: search + filters */
+.courses-tools { background: #fff; padding: 16px 0 8px; }
+.tools-container {
+  width: min(1100px, calc(100% - 48px));
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.search-wrap {
+  position: relative;
+  flex: 1 1 520px;
+  max-width: 640px;
+  height: 52px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 14px 0 44px;
+  color: #6b7280;
+}
+.search-wrap .icon {
+  position: absolute;
+  left: 14px;
+  width: 20px; height: 20px;
+  color: #9ca3af;
+}
+.search-wrap input {
+  flex: 1;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: var(--ink);
+}
+.filters-wrap { display: flex; align-items: center; gap: 12px; white-space: nowrap; }
+.filter-label { display: inline-flex; align-items: center; gap: 8px; color: #6b7280; font-weight: 600; }
+.filter-label .icon { width: 18px; height: 18px; color: #9ca3af; }
+.chips { display: flex; align-items: center; gap: 10px; flex-wrap: nowrap; }
+.chip {
+  appearance: none; border: 1px solid #e5e7eb; background: #fff; color: #111827; cursor: pointer;
+  height: 34px; padding: 0 12px; border-radius: 999px; font-weight: 600; font-size: 0.95rem;
+}
+.chip.active { background: #7c3aed; color: #fff; border-color: transparent; box-shadow: 0 6px 14px rgba(124, 58, 237, 0.18); }
