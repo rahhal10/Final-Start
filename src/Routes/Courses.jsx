@@ -1,51 +1,27 @@
-import React from 'react'
+import { useEffect} from 'react'
+import { useState } from 'react'
 import '../Css/Courses.css'
 import Courses_CoursesCards from '../Comp/Courses_CoursesCards.jsx'
 
-function Courses() {
 
-  const Coursesclass = [
-    {
-      id: 1,
-      title: 'Complete Web Development Bootcamp',
-      img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      badge: 'development',
-      level: '',
-      instructor: 'by Sarah Johnson',
-      rating: '⭐ 4.9',
-      duration: '🕒 12 weeks',
-      students: '👥 15,432',
-      lessons: '📚 24 lessons',
-      price: '$199',
-      paymentInfo: 'One-time payment'
-    },    {
-      id: 2,
-      title: 'Complete Web Development Bootcamp',
-      img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      badge: 'development',
-      level: '',
-      instructor: 'by Sarah Johnson',
-      rating: '⭐ 4.9',
-      duration: '🕒 12 weeks',
-      students: '👥 15,432',
-      lessons: '📚 24 lessons',
-      price: '$199',
-      paymentInfo: 'One-time payment'
-    },{
-      id: 2,
-      title: 'Complete Web Development Bootcamp',
-      img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      badge: 'development',
-      level: '',
-      instructor: 'by Sarah Johnson',
-      rating: '⭐ 4.9',
-      duration: '🕒 12 weeks',
-      students: '👥 15,432',
-      lessons: '📚 24 lessons',
-      price: '$199',
-      paymentInfo: 'One-time payment'
+function Courses() {
+  const [courses, setCourses] = useState([]);
+
+  const fetchCourses = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/users/courses');
+      const data = await response.json();
+      setCourses(data);
+    } catch (error) {
+      console.error('Failed to fetch courses:', error);
     }
-  ]
+  }
+
+
+  useEffect(() => {
+    fetchCourses();
+  }, []);
+
   return (
     <>
       <section className="courses-hero" aria-label="courses-hero">
@@ -152,8 +128,8 @@ function Courses() {
           
           <div className="popular-grid">
 
-            {Coursesclass.map((Card) => (
-              <Courses_CoursesCards key={Card.id} Card={Card} />
+            {courses.map((course) => (
+              <Courses_CoursesCards key={course.id} courses={course} />
             ))}
 
             

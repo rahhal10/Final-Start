@@ -6,17 +6,17 @@ function Cart_Products({ coursesInCart }) {
             <img className="thumb" src={coursesInCart.image} alt="course" />
             <div className="item-main">
               <div className="item-meta">
-                <span className="tag">Development</span>
+                <span className="tag">{coursesInCart.tag || 'Development'}</span>
                 <h3 className="item-title">{coursesInCart.title}</h3>
-                <div className="item-sub">by {coursesInCart.instructor} · {coursesInCart.duration} · {coursesInCart.lessons} lessons · <span className="star">★ {coursesInCart.rating}</span></div>
+                <div className="author">by {coursesInCart.instructor}</div>
+                {/* move price under author/title */}
+                <div className="price">
+                  <div className="price-amount">{`$${coursesInCart.price}`}</div>
+                </div>
+                <div className="item-stats">{coursesInCart.duration} · {coursesInCart.lessons} lessons · <span className="star">★ {coursesInCart.rating}</span></div>
               </div>
 
               <div className="item-actions">
-                <div className="price">
-                  <div className="current">${coursesInCart.price}</div>
-                  <div className="original">${coursesInCart.originalPrice}</div>
-                </div>
-
                 <div className="qty">
                   <button type="button" className="qty-btn">−</button>
                   <div className="qty-num">1</div>
