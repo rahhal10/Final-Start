@@ -4,8 +4,30 @@ import '../Css/Courses.css'
 import Courses_CoursesCards from '../Comp/Courses_CoursesCards.jsx'
 
 
-function Courses() {
+function Courses({ user }) {
   const [courses, setCourses] = useState([]);
+
+  const handleEnrollment = async (course) => {
+  
+      try {
+        const response = await fetch('http://localhost:5000/api/users/addCart', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',},
+          body: JSON.stringify({ course: course , user: user.email, userName: user.username }),
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to enroll in course');
+        }
+
+        const data = await response.json();
+        console.log('Enrollment successful:', data);
+      } catch (error) {
+        console.error('Error enrolling in course:', error);
+      
+    };
+  }
 
   const fetchCourses = async () => {
     try {
@@ -21,6 +43,9 @@ function Courses() {
   useEffect(() => {
     fetchCourses();
   }, []);
+
+
+  
 
   return (
     <>
@@ -129,7 +154,7 @@ function Courses() {
           <div className="popular-grid">
 
             {courses.map((course) => (
-              <Courses_CoursesCards key={course.id} courses={course} />
+              <Courses_CoursesCards key={course.id} courses={course} onEnroll={handleEnrollment} />
             ))}
 
             
@@ -147,5 +172,6 @@ function Courses() {
     </>
   )
 }
+
 
 export default Courses

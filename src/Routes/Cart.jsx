@@ -15,58 +15,8 @@ function Cart() {
             price: 199,
             originalPrice: 299,
             image: "/vite.svg"
-        },{
-            id: 1,
-            title: "Complete Web Development Bootcamp",
-            instructor: "Sarah Johnson",
-            duration: "12 weeks",
-            lessons: 24,
-            rating: 4.9,
-            price: 199,
-            originalPrice: 299,
-            image: "/vite.svg"
-        },{
-            id: 1,
-            title: "Complete Web Development Bootcamp",
-            instructor: "Sarah Johnson",
-            duration: "12 weeks",
-            lessons: 24,
-            rating: 4.9,
-            price: 199,
-            originalPrice: 299,
-            image: "/vite.svg"
-        },{
-            id: 1,
-            title: "Complete Web Development Bootcamp",
-            instructor: "Sarah Johnson",
-            duration: "12 weeks",
-            lessons: 24,
-            rating: 4.9,
-            price: 199,
-            originalPrice: 299,
-            image: "/vite.svg"
-        },{
-            id: 1,
-            title: "Complete Web Development Bootcamp",
-            instructor: "Sarah Johnson",
-            duration: "12 weeks",
-            lessons: 24,
-            rating: 4.9,
-            price: 199,
-            originalPrice: 299,
-            image: "/vite.svg"
-        },{
-            id: 1,
-            title: "Complete Web Development Bootcamp",
-            instructor: "Sarah Johnson",
-            duration: "12 weeks",
-            lessons: 24,
-            rating: 4.9,
-            price: 199,
-            originalPrice: 299,
-            image: "/vite.svg"
         }
-    ]
+    ];
   return (
     <section className="cart-page">
       <div className="cart-container">

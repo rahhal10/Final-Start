@@ -1,7 +1,7 @@
 import React from 'react'
 import '../Css/Courses.css'
 
-function Courses_CoursesCards({ courses }) {
+function Courses_CoursesCards({ courses, onEnroll }) {
 
   return (
     
@@ -36,7 +36,7 @@ function Courses_CoursesCards({ courses }) {
                     <span className="current-price">${courses.price}</span>
                     <span className="payment-info">{courses.paymentInfo}</span>
                   </div>
-                  <button className="enroll-btn">Enroll Now</button>
+                  <button className="enroll-btn" onClick={() => onEnroll(courses)}>Enroll Now</button>
                 </div>
               </div>
             </div>

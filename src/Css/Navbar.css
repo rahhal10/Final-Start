@@ -156,6 +156,47 @@
   height: 100%;
 }
 
+/* user info container */
+.navbar-user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar-user-name {
+  font-weight: 700;
+  color: #0f172a;
+  font-size: 0.95rem;
+}
+
+.navbar-role {
+  font-size: 0.74rem;
+  color: #6b21a8;
+  background: rgba(107, 33, 168, 0.08);
+  border: 1px solid rgba(107, 33, 168, 0.12);
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+/* logout button */
+.navbar-logout {
+  background: transparent;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  color: #111827;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+}
+.navbar-logout:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+  background: rgba(0,0,0,0.02);
+}
+
 .nav-links-right a {
   text-decoration: none;
   font-size: 1rem;

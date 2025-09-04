@@ -6,19 +6,43 @@ import Courses from './Routes/Courses.jsx'
 import About from './Routes/About.jsx'
 import Footer from './Comp/Footer.jsx'
 import Cart from './Routes/Cart.jsx'
-function App() {
+import Login from './Routes/Login.jsx'
+import React, { useState } from 'react';
 
-  return (
+
+
+function App() {
+    const [user, setUser] = useState(() => {
+      try {
+        const stored = localStorage.getItem('user');
+        return stored ? JSON.parse(stored) : null;
+      } catch (e) {
+        return null;
+      }
+    });
+
+  const onLogin = (loginData) => {
+    setUser(loginData);
+    console.log('Logged in user:', loginData);
+    localStorage.setItem('user', JSON.stringify(loginData));
+  };
+
+  const onLogout = () => {
+    setUser(null);
+    localStorage.removeItem('user');
+  };
+
+return (
     <>
     <Router>
-      <Navbar/>
+      <Navbar onLogout={onLogout} user={user} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/courses" element={<Courses />} />
+        <Route path="/dashboard" element={user  ? <Dashboard /> : <Home />} />
+        <Route path="/courses" element={user ? <Courses user={user} /> : <Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/login" element={<div>Login Page</div>} />
+       <Route path="/cart" element={user ? <Cart /> : <Home />} />
+        <Route path="/login" element={<Login onLogin={onLogin} />} />
         <Route path="/signup" element={<div>Signup Page</div>} />
       </Routes>
       <Footer />
