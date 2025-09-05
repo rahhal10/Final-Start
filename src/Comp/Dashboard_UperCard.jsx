@@ -1,7 +1,7 @@
 import React from 'react'
 import '../Css/Dashboard.css'
 
-function Dashboard_UperCard({courseuper}) {
+function Dashboard_UperCard({courseCount}) {
   return (
     <>
           <div className="metric-card">
@@ -15,8 +15,7 @@ function Dashboard_UperCard({courseuper}) {
                 </svg>
               </span>
             </div>
-            <div className="metric-value">{courseuper.id}</div>
-            <div className="metric-note">+2 from last month</div>
+            <div className="metric-value">{courseCount}</div>
           </div>
           <div className="metric-card">
             <div className="metric-top">

@@ -1,7 +1,7 @@
 import React from 'react'
 import '../Css/Dashboard.css'
 
-function Course_cards({course}) {
+function Course_cards({usercourse}) {
 
   return (
     <div>
@@ -10,17 +10,17 @@ function Course_cards({course}) {
         {/* Course cards */}
           <article className="course-card">
             <div className="card-media">
-              <img src={course.img} alt={`${course.title} thumbnail`} />
-              <span className="pill level">{course.level}</span>
-              <span className="pill tag">{course.tag}</span>
+              <img src={usercourse.image_url} alt={`${usercourse.title} thumbnail`} />
+              <span className="pill level">{usercourse.category}</span>
+              <span className="pill tag">{usercourse.duration}</span>
             </div>
             <div className="card-body">
-              <h3 className="title">{course.title}</h3>
-              <p className="sub">{course.description}</p>
+              <h3 className="title">{usercourse.title}</h3>
+              <p className="sub">{usercourse.description}</p>
 
               <div className="author">
                 <div className="avatar" aria-hidden>SJ</div>
-                <span>{course.author}</span>
+                <span>{usercourse.instructor}</span>
               </div>
 
               <div className="prog">
@@ -34,7 +34,7 @@ function Course_cards({course}) {
                   <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                     <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>
                   </svg>
-                  {course.hours}
+                  {usercourse.lessons_count} Lesson
                 </span>
                 <span className="m">
                   <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>

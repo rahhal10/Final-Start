@@ -69,10 +69,10 @@ import {Link} from "react-router-dom";
           </div>
          
           {!user?.role ? (
-            <button type="submit" className="login-btn">Sign In</button>
+            <button type="submit" className="login-btn">Sgn In</button>
           ) : (
-            <Link to={user.role === 'admin' ? '/admin_dashboard' : '/dashboard'}>
-              <button type="button" className="login-btn">Sign In</button>
+            <Link to={user.role === 'admin' ? '/admin_home' : '/dashboard'}>
+              <button type="button" className="login-btn">Go to Dashboard</button>
             </Link>
           )}
         </form>
@@ -99,7 +99,7 @@ import {Link} from "react-router-dom";
         </div>
         <div className="login-signup-row">
           <span>Don't have an account? </span>
-          <a href="#" className="login-signup-link" onClick={e => e.preventDefault()}>Sign up for free</a>
+          <Link to="/signup" className="login-signup-link">Sign up for free</Link>
         </div>
       </div>
       <div className="login-right">

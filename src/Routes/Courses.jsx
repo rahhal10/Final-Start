@@ -14,7 +14,20 @@ function Courses({ user }) {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',},
-          body: JSON.stringify({ course: course , user: user.email, userName: user.username }),
+          body: JSON.stringify({
+            username: user.username,
+            email: user.email,
+            title: course.title,
+            instructor: course.instructor,
+            price: course.price,
+            category: course.category,
+            duration: course.duration,
+            lessons_count: course.lessons_count,
+            rating: course.rating,
+            image_url: course.image_url,
+            description: course.description,
+            quantity: 1
+          }),
         });
 
         if (!response.ok) {

@@ -1,5 +1,6 @@
 import React from 'react'
 import '../Css/Home.css'
+import { Link } from 'react-router-dom'
 
 function Home() {
   return (
@@ -27,7 +28,7 @@ function Home() {
         </div>
 
         <div className="hero-actions">
-          <button className="hero-btn-primary">Start Learning Now</button>
+          <Link to="/signup"><button className="hero-btn-primary">Start Learning Now</button></Link>
           <button className="hero-btn-secondary">
             <span className="play">▶</span>
             Watch Demo

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Dashboard_Assignment({ assignment }) {
+function Dashboard_Assignment({ assignments }) {
   return (
     <>
 
@@ -9,12 +9,12 @@ function Dashboard_Assignment({ assignment }) {
            <ul className="assign-list">
               <li className="assign-row">
                 <div className="task">
-                  <div className="t-title">{assignment.title}</div>
-                  <div className="t-sub">{assignment.subject}</div>
+                  <div className="t-title">{assignments.title}</div>
+                  <div className="t-sub">{assignments.subject}</div>
                 </div>
                 <div className="task-right">
-                  <span className={`status-pill`}>{assignment.priority}</span>
-                  <span className="due">{assignment.dueDate}</span>
+                  <span className={`status-pill`}>{assignments.priority}</span>
+                  <span className="due">{assignments.dueDate}</span>
                 </div>
               </li>
         </ul>

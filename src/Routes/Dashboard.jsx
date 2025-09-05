@@ -1,52 +1,87 @@
-import React from 'react'
+import React, { use } from 'react'
 import Course_cards from '../Comp/Dashboard_Mid_cards.jsx'
 import hero from '../assets/hero-learning.jpg'
 import '../Css/Dashboard.css'
 import Dashboard_UperCard from '../Comp/Dashboard_UperCard.jsx'
 import Dashboard_Assignment from '../Comp/Dashboard_Assignment.jsx'
-function Dashboard() {
+import { useEffect } from 'react'
+import { useState } from 'react'
+function Dashboard({ user }) {
 
-  const courses=[
-    { id: 1, title: "hi Web Development Bootcamp", img:hero, level: 'Intermediate', tag: 'Web Development', author: 'Sarah Johnson', progress: 65, hours: 40,  description: 'hi the basics of web development with this comprehensive bootcamp.' },
-    { id: 2, title: "Complete Web Development Bootcamp", img:hero, level: 'Intermediate', tag: 'Web Development', author: ' Johnson', progress: 65, hours: 45, description: 'Master web development with this complete bootcamp.' },
-    
-    
+  function courseCount() {
+    return usercourse.length;
+  }
 
-  ]
-  const courseuper=[{id:7}]
-  const courseAssignments = [
-    { id: 1, title: "JavaScript Functions Quiz", subject: "Web Development", priority: "high", dueDate: "Tomorrow" },
-    { id: 2, title: "Data Visualization Project", subject: "Data Science", priority: "medium", dueDate: "In 3 days" },
-    { id: 1, title: "JavaScript Functions Quiz", subject: "Web Development", priority: "high", dueDate: "Tomorrow" },
-    { id: 2, title: "Data Visualization Project", subject: "Data Science", priority: "medium", dueDate: "In 3 days" },
-    { id: 1, title: "JavaScript Functions Quiz", subject: "Web Development", priority: "high", dueDate: "Tomorrow" },
-    { id: 2, title: "Data Visualization Project", subject: "Data Science", priority: "medium", dueDate: "In 3 days" },
-    { id: 1, title: "JavaScript Functions Quiz", subject: "Web Development", priority: "high", dueDate: "Tomorrow" },
-    { id: 2, title: "Data Visualization Project", subject: "Data Science", priority: "medium", dueDate: "In 3 days" },
-    { id: 1, title: "JavaScript Functions Quiz", subject: "Web Development", priority: "high", dueDate: "Tomorrow" },
-    { id: 2, title: "Data Visualization Project", subject: "Data Science", priority: "medium", dueDate: "In 3 days" },
-    { id: 1, title: "JavaScript Functions Quiz", subject: "Web Development", priority: "high", dueDate: "Tomorrow" },
-    { id: 2, title: "Data Visualization Project", subject: "Data Science", priority: "medium", dueDate: "In 3 days" },
-    
+  const courseUpper = [{ id: 1 }];
+  const [usercourse, setUsercourse] = useState([]);
+  const [assignments, setAssignments] = useState([]);
 
-  ];
+  async function fetchusercourse() {
+    try {
+      const response = await fetch('http://localhost:5000/api/users/user-courses', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: user?.email,
+          username: user?.username,
+        }),
+      });
+      if (!response.ok) throw new Error('Failed to fetch user courses');
+      const data = await response.json();
+      setUsercourse(data);
+    } catch (error) {
+      console.error('Error fetching user courses:', error);
+    }
+  }
+
+  useEffect(() => {
+    fetchusercourse();
+  }, []);
+
+
+
+  async function fetchAssignments() {
+    try {
+      const response = await fetch('http://localhost:5000/api/users/assignments', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      if (!response.ok) throw new Error('Failed to fetch assignments');
+      const data = await response.json();
+      setAssignments(data);
+    } catch (error) {
+      console.error('Error fetching assignments:', error);
+    }
+  }
+
+  useEffect(() => {
+    fetchAssignments();
+  }, []);
+
+  
+
+  
   return (
     <main className="dash">
       <div className="dash-container">
         <header className="dash-head">
-          <h1>Welcome back, John!</h1>
+          <h1>Welcome back, {user.username}!</h1>
           <p>Continue your learning journey</p>
         </header>
 
         <div className="metric-grid" aria-label="stats">
-          {courseuper.map((courseuper) => (
-            <Dashboard_UperCard key={courseuper.id} courseuper={courseuper} />
+          {courseUpper.map((courseuper) => (
+            <Dashboard_UperCard key={courseuper.id} courseuper={courseuper} courseCount={courseCount()} />
           ))}
         </div>
 
          <div className="course-grid" aria-label="your courses">
-          {courses.map((course) => (
-            <Course_cards key={course.id} course={course} />
+          {usercourse.map((usercourse) => (
+            <Course_cards key={usercourse.id} usercourse={usercourse} />
           ))}
          </div>
         {/* Assignments + Achievements */}
@@ -65,8 +100,8 @@ function Dashboard() {
             </header>
 
          <div>
-          {courseAssignments.map((assignment) => (
-            <Dashboard_Assignment key={assignment.id} assignment={assignment} />
+          {assignments.map((assignments) => (
+            <Dashboard_Assignment key={assignments.id} assignments={assignments} />
           ))}
         </div>
 

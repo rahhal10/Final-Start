@@ -6,7 +6,6 @@ function Courses_CoursesCards({ courses, onEnroll }) {
   return (
     
     <>
-     {/* Course Card 1 - Web Development */}
             <div className="course-card popular">
               <div className="course-image">
                 <img src={courses.image_url} alt={courses.title} />
